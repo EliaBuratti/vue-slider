@@ -13,7 +13,6 @@ createApp({
     return {
 
         activeImage: 0,
-        
         slides: [
             {
                 image: './img/01.webp',
@@ -44,23 +43,31 @@ createApp({
 
   //function
   methods: {
-        prev() {
+        next() {
             this.activeImage++;
-
-            if (this.activeImage > this.slides.length - 1 ) {
+            if (this.activeImage > this.slides.length + 1 ) {
                 this.activeImage = 0;
             }
-            
+
         },
 
-        next() {
+        prev() {
             this.activeImage--;
-
             if (this.activeImage < 0 ) {
                 this.activeImage = this.slides.length - 1
             }
-        }
+        },
 
-      }
-  },
-).mount('#app')
+        prova (index) {
+            return `thumb ${this.activeImage === index - 1 ? 'active' : ''} `
+        },       
+        
+    }
+},
+).mount('#app');
+
+setInterval(function(){
+
+},1000);
+
+

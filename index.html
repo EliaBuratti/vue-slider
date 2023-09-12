@@ -16,7 +16,7 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
+                <div class="item" > <!-- @mouseover="stopCarousel() " @mouseleave="startCarousel()" -->
                     <img :src="slides[activeImage].image" alt="">
                     <div class="text">
                         <h3>{{slides[activeImage].title}}</h3>
@@ -29,8 +29,8 @@
                 <div class="thumbs">
                     <div class="prev" @click="prev()"></div>
                     <div class="next" @click="next()"></div>
-                    <div v-for="(n, index) in slides.length " class="thumb">
-                        <img :src="slides[index].image" alt="Ratchet & Clank" @click="activeImage = index"/>
+                    <div v-for="(slide, index) in slides.length" :class="prova(slide)" >
+                        <img :src="slides[index].image" :alt="slides[index].title" @click="activeImage = index" />
                     </div>
                 </div>
 
