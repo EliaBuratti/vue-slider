@@ -11,7 +11,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-
+        autoplay: true,
         activeImage: 0,
         slides: [
             {
@@ -55,12 +55,26 @@ createApp({
             if (this.activeImage < 0 ) {
                 this.activeImage = this.slides.length - 1
             };
+            console.log(this.activeImage);
 
         },
 
         activeThumb (index) {
             return `thumb ${this.activeImage === index - 1 ? 'active' : ''} `
-        },       
+        },   
+        
+        slidePlay() {
+                auto = setInterval(() => {
+                
+                this.activeImage++;
+                if (this.activeImage > this.slides.length - 1 ) {
+                    this.activeImage = 0;
+                }},1000);
+        },
+
+        stopPlay () {
+            clearInterval(auto);
+        }
         
     }
 },
