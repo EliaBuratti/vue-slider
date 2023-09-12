@@ -44,6 +44,22 @@ createApp({
 
   //function
   methods: {
+        prev() {
+            this.activeImage++;
+
+            if (this.activeImage > this.slides.length - 1 ) {
+                this.activeImage = 0;
+            }
+            
+        },
+
+        next() {
+            this.activeImage--;
+
+            if (this.activeImage < 0 ) {
+                this.activeImage = this.slides.length - 1
+            }
+        }
 
       }
   },
