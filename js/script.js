@@ -43,22 +43,22 @@ createApp({
 
   //function
   methods: {
-        next() {
+      next() {
             this.activeImage++;
-            if (this.activeImage > this.slides.length + 1 ) {
+            if (this.activeImage > this.slides.length - 1 ) {
                 this.activeImage = 0;
             }
-
         },
 
         prev() {
-            this.activeImage--;
+            this.activeImage-- ;
             if (this.activeImage < 0 ) {
                 this.activeImage = this.slides.length - 1
-            }
+            };
+
         },
 
-        prova (index) {
+        activeThumb (index) {
             return `thumb ${this.activeImage === index - 1 ? 'active' : ''} `
         },       
         
