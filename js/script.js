@@ -64,24 +64,18 @@ createApp({
         },   
         
         slidePlay() {
-                auto = setInterval(() => {
-                
-                this.activeImage++;
-                if (this.activeImage > this.slides.length - 1 ) {
-                    this.activeImage = 0;
-                }},1000);
+                this.auto = setInterval(this.next,1000);
         },
 
         stopPlay () {
-            clearInterval(auto);
-        }
-        
+            clearInterval(this.auto);
+        },
+
+    }, 
+    
+    mounted() { // lo utilizzo per far eseguire in automatico una funzione
+        this.slidePlay();
     }
-},
+}
 ).mount('#app');
-
-setInterval(function(){
-
-},1000);
-
 
